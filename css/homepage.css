@@ -1,29 +1,26 @@
-
-
-header{
-	/*height:100%;*/
-	/*background-size:cover;*/
-	border-radius:10px;
-	margin:5px 5px 5px 5px;
-	padding-bottom:20px;
+body {
+	margin: 0;
+	background-image:url("/PizzaNow/images/homepagebg.jpg");
+	height:100%;
+	background-size:cover;
 }
 
-nav{
-	padding:5px 0px 5px 30px;
+header{
+	background-color: #000000e3;
 }
 
 /* navigation bar styling */
 ul{
 	list-style-type: none;
-	margin: 30px 20px 5px 30px;
-	padding: 0;
 	overflow: hidden;
-	background-color: #211C81;
-	border-radius:20px;
+	height: 15%;
+	width: 60%;
 }
 
 li{
-	float: left;
+	float: right;
+	margin: 1%;
+	font-size: larger;
 }
 
 
@@ -31,15 +28,24 @@ li a {
 	display: block; /* display the navigation bar list in block */
 	color: white;
 	text-align: center;
-	padding: 14px 20px;
+	padding: 25px 20px;
 	text-decoration: none;
+	width: 100%;
 }
 
 /* adding the hover effect to the navigation bar */
 li a:hover:not(.active) {
-	background-color: #111;
+	background-color: #373635;
 }
 
-.active {
-	background-color: #4CAF50;
+img.logo {
+	display: inline-block;
+	float:left;
+	width: 25%;
+	height: 15%;
+	margin-left: 5%;
+}
+
+i {
+	margin-right: 10%;
 }
