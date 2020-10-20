@@ -1,0 +1,45 @@
+
+
+header{
+	/*height:100%;*/
+	/*background-size:cover;*/
+	border-radius:10px;
+	margin:5px 5px 5px 5px;
+	padding-bottom:20px;
+}
+
+nav{
+	padding:5px 0px 5px 30px;
+}
+
+/* navigation bar styling */
+ul{
+	list-style-type: none;
+	margin: 30px 20px 5px 30px;
+	padding: 0;
+	overflow: hidden;
+	background-color: #211C81;
+	border-radius:20px;
+}
+
+li{
+	float: left;
+}
+
+
+li a {
+	display: block; /* display the navigation bar list in block */
+	color: white;
+	text-align: center;
+	padding: 14px 20px;
+	text-decoration: none;
+}
+
+/* adding the hover effect to the navigation bar */
+li a:hover:not(.active) {
+	background-color: #111;
+}
+
+.active {
+	background-color: #4CAF50;
+}
