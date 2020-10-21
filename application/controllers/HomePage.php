@@ -7,10 +7,6 @@ class HomePage extends CI_Controller {
 		$this->load->view('home_page');
 	}
 
-	public function homePage(){
-		$this->load->view('home_page');
-	}
-
 	public function myCV(){
 		$this->load->view('samashaCV');
 	}
