@@ -6,10 +6,10 @@
 
 /* styling the body of the cv */
 body {
-	background-image: url("/PizzaNow/images/cvbackground.jpg");
 	font: 16px Helvetica, Sans-Serif;
 	line-height: 24px;
 	margin: 0;
+	background-image: url("/PizzaNow/images/cvbg.jpg");
 	height: 100%;
 	background-size: cover; /* set the background image to the fullscreen of the page */
 }
@@ -28,7 +28,7 @@ body {
 .pic {
 	float: right;
 	padding: 0px 0px 5px 5px;
-	width: 200px;
+	width: 260px;
 	height: 330px;
 }
 

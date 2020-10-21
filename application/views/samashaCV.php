@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <title>Samasha Nayananthi</title>
 
-           <link rel="stylesheet" href="/PizzaNow/css/styleCV.css">
+           <link href="/PizzaNow/css/stylecv.css" rel="stylesheet" >
 </head>
 <body>
 <div id="page-wrap">
 
-    <img src="Untitled.png" class="pic" />
+    <img src="/PizzaNow/images/sam.jpg" class="pic" />
 
     <div id="contact-info" class="vcard">
 
