@@ -5,47 +5,35 @@ body {
 	background-size:cover;
 }
 
-header{
-	background-color: #000000e3;
+#welcome {
+	font-family: cursive;
+	max-width: 70%;
+	margin: auto;
+	padding: 2%;
+	text-align: center;
+	background-color: #000000ad;
+	color: white;
+	border-radius: 10%;
 }
 
-/* navigation bar styling */
-ul{
-	list-style-type: none;
-	overflow: hidden;
-	height: 15%;
-	width: 65%;
+#h1 {
+	font-size: xx-large;
 }
 
-li{
-	float: right;
-	margin: 1%;
+#para {
+	line-height: 200%;
 	font-size: larger;
 }
 
-
-li a {
-	display: block; /* display the navigation bar list in block */
-	color: white;
+#footer {
 	text-align: center;
-	padding: 25px 20px;
-	text-decoration: none;
+	color: white;
+	position: fixed;
+	bottom: 0;
 	width: 100%;
+	background-color: #000000ad;;
 }
 
-/* adding the hover effect to the navigation bar */
-li a:hover:not(.active) {
-	background-color: #373635;
-}
-
-img.logo {
-	display: inline-block;
-	float:left;
-	width: 25%;
-	height: 15%;
-	margin-left: 5%;
-}
-
-i {
-	margin-right: 10%;
+#cv {
+	color: white;
 }

@@ -1,0 +1,45 @@
+header{
+	background-color: #000000e3;
+	margin-bottom: 5%;
+}
+
+/* navigation bar styling */
+ul{
+	list-style-type: none;
+	overflow: hidden;
+	height: 15%;
+	width: 65%;
+}
+
+li{
+	float: right;
+	margin: 1%;
+	font-size: larger;
+}
+
+
+li a {
+	display: block; /* display the navigation bar list in block */
+	color: white;
+	text-align: center;
+	padding: 25px 20px;
+	text-decoration: none;
+	width: 100%;
+}
+
+/* adding the hover effect to the navigation bar */
+li a:hover:not(.active) {
+	background-color: #373635;
+}
+
+img.logo {
+	display: inline-block;
+	float:left;
+	width: 25%;
+	height: 15%;
+	margin-left: 5%;
+}
+
+i {
+	margin-right: 10%;
+}
