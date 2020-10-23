@@ -11,6 +11,10 @@ class HomePage extends CI_Controller {
 		$this->load->view('samashaCV');
 	}
 
+	public function aboutUs(){
+		$this->load->view('about_us');
+	}
+
 }
 
 ?>

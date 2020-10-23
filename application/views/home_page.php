@@ -17,12 +17,9 @@ include_once("header.php");
 	SO WHAT ARE YOU WAITING FOR ??? <br> HURRY UP !!! AND GRAB YOU'RE PIZZA !!!</p>
 </div>
 
-<div id="footer">
-	<footer>
-		<p>&copy; 2020 PizzaNow! | Designed by - <a href="/PizzaNow/index.php/HomePage/myCV"
-													id="cv">M.A Samasha Nayananthi</a></p>
-	</footer>
-</div>
+<?php
+include_once("footer.php");
+?>
 
 </body>
 </html>

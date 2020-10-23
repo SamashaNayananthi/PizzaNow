@@ -24,16 +24,3 @@ body {
 	line-height: 200%;
 	font-size: larger;
 }
-
-#footer {
-	text-align: center;
-	color: white;
-	position: fixed;
-	bottom: 0;
-	width: 100%;
-	background-color: #000000ad;;
-}
-
-#cv {
-	color: white;
-}
