@@ -16,6 +16,12 @@
 include_once("header.php");
 ?>
 
+<div id="links-to-sections">
+	<a href="#appetizer">Appetizers</a>
+	<a href="#drinks">Drinks</a>
+	<a href="#deals">Special Deals</a>
+</div>
+
 <div id="grid-container">
 
 	<h2><span class="title">Pizza Menu</span></h2>
@@ -39,7 +45,13 @@ include_once("header.php");
 		?>
 
 	<br>
-	<h2><span class="title">Special Deals</span></h2>
+	<h2><span class="title" id="appetizer">Appetizers</span></h2>
+
+	<br>
+	<h2><span class="title" id="drinks">Drinks</span></h2>
+
+	<br>
+	<h2><span class="title" id="deals">Special Deals</span></h2>
 </div>
 
 <?php
