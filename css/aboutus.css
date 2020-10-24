@@ -5,13 +5,31 @@ body {
 	background-size:cover;
 }
 
-#title {
+#desc {
+	width: 98%;
+	height: 50%;
+	padding: 1%;
+	background-color: #00000078;
 	color: white;
+}
 
-	/*max-width: 70%;*/
-	/*margin: auto;*/
-	/*padding: 2%;*/
-	/*text-align: center;*/
-	/*background-color: #000000ad;*/
-	/*border-radius: 10%;*/
+#title {
+	font-size: 45px;
+	padding-left: 2%;
+}
+
+#float-child {
+	width: 48%;
+	float: left;
+	padding-top: 2%;
+	line-height: 2;
+}
+
+#float-child .left-first {
+	font-size: 30px;
+	padding-left: 10%;
+}
+
+#float-child .right-first {
+	font-size: 20px;
 }
