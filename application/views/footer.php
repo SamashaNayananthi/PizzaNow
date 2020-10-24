@@ -8,7 +8,7 @@
 			position: fixed;
 			bottom: 0;
 			width: 100%;
-			background-color: #000000ad;
+			background-color: #000000;
 		}
 
 		.cv {

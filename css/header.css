@@ -1,6 +1,8 @@
 header{
-	background-color: #000000e3;
+	background-color: #000000;
 	margin-bottom: 5%;
+	position: sticky;
+	top: 0;
 }
 
 /* navigation bar styling */
