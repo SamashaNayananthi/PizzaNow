@@ -42,7 +42,53 @@ include_once("header.php");
 
 		<div class="toppings">
 			<h2>Toppings</h2>
+
+			<div id="grid-container">
+				<div id='grid-item'>
+					<img src="/PizzaNow/images/toppings/cheese.jpg" height='50px' width='75px'>
+
+					<div class="details">
+						<b>Cheese</b>
+						<br>
+						(Rs. 150)
+					</div>
+				</div>
+
+				<div id='grid-item'>
+					<img src="/PizzaNow/images/toppings/cheese.jpg" height='50px' width='75px'>
+
+					<div class="details">
+						<b>Cheese</b>
+						<br>
+						(Rs. 150)
+					</div>
+				</div>
+
+				<div id='grid-item'>
+					<img src="/PizzaNow/images/toppings/cheese.jpg" height='50px' width='75px'>
+
+					<div class="details">
+						<b>Cheese</b>
+						<br>
+						(Rs. 150)
+					</div>
+				</div>
+
+				<div id='grid-item'>
+					<img src="/PizzaNow/images/toppings/cheese.jpg" height='50px' width='75px'>
+
+					<div class="details">
+						<b>Cheese</b>
+						<br>
+						(Rs. 150)
+					</div>
+				</div>
+			</div>
 		</div>
+
+		Quantity - <input type="number" class="quantity" name="quantity" value="1" min="1" max="10">
+
+		<button class='button' onclick="window.location.href=''"><i class='fa fa-shopping-cart'></i>Add to Cart</button>
 	</div>
 </div>
 
