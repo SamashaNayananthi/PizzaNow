@@ -9,6 +9,11 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 	<link href="/PizzaNow/css/menu.css" rel="stylesheet">
 
+	<style>
+		#grid-container {
+			grid-row-gap: 1%;
+		}
+	</style>
 </head>
 
 <body>
@@ -47,11 +52,66 @@ include_once("header.php");
 	<br>
 	<h2><span class="title" id="appetizer">Appetizers</span></h2>
 
+	<?php
+
+	foreach ($appetizersList as $appetizer) {
+
+		echo "<div id='grid-item'>";
+		echo "<img src=$appetizer->img_url height='200px' width='250px'>";
+		echo "<hr>";
+
+		echo "<div class='details'>";
+		echo "<div class='name' data-toggle='tooltip' data-placement='top' title='$appetizer->display_name'>$appetizer->display_name</div>";
+		echo "<div class='desc' data-toggle='tooltip' data-placement='top' title='$appetizer->description'>$appetizer->description</div>";
+		echo "<div class='price'>Price <b>Rs. $appetizer->price</b></div>";
+		echo "<button class='button'><i class='fa fa-shopping-cart'></i>Add to Cart</button>";
+		echo "</div>";
+		echo "</div>";
+	}
+	?>
+
 	<br>
 	<h2><span class="title" id="drinks">Drinks</span></h2>
 
+	<?php
+
+	foreach ($drinksList as $drink) {
+
+		echo "<div id='grid-item'>";
+		echo "<img src=$drink->img_url height='200px' width='250px'>";
+		echo "<hr>";
+
+		echo "<div class='details'>";
+		echo "<div class='name' data-toggle='tooltip' data-placement='top' title='$drink->display_name'>$drink->display_name</div>";
+		echo "<div class='desc' data-toggle='tooltip' data-placement='top' title='$drink->description'>$drink->description</div>";
+		echo "<div class='price'>Price <b>Rs. $drink->price</b></div>";
+		echo "<button class='button'><i class='fa fa-shopping-cart'></i>Add to Cart</button>";
+		echo "</div>";
+		echo "</div>";
+	}
+	?>
+
 	<br>
 	<h2><span class="title" id="deals">Special Deals</span></h2>
+
+<!--	--><?php
+//
+//	foreach ($dealsList as $deal) {
+//
+//		echo "<div id='grid-item'>";
+//		echo "<img src=$deal->img_url height='200px' width='250px'>";
+//		echo "<hr>";
+//
+//		echo "<div class='details'>";
+//		echo "<div class='name' data-toggle='tooltip' data-placement='top' title='$deal->display_name'>$deal->display_name</div>";
+//		echo "<div class='desc' data-toggle='tooltip' data-placement='top' title='$deal->description'>$deal->description</div>";
+//		echo "<div class='price'>Price <b>Rs. $deal->price</b></div>";
+//		echo "<button class='button'><i class='fa fa-shopping-cart'></i>Add to Cart</button>";
+//		echo "</div>";
+//		echo "</div>";
+//	}
+//	?>
+
 </div>
 
 <?php

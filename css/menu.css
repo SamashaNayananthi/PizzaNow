@@ -30,7 +30,7 @@ h2 .title {
 #grid-container {
 	display: grid;
 	grid-column-gap: 5%;
-	grid-row-gap: 5%;
+	grid-row-gap: 1%;
 	grid-template-columns: auto auto auto auto;
 	padding: 0 1%;
 	margin: 3% 0;
