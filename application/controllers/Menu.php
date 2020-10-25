@@ -17,6 +17,10 @@ class Menu extends CI_Controller {
 		$this->load->view('deals', $this ->MenuModel->getDeals());
 	}
 
+	public function customize(){
+		$this->load->view('customize');
+	}
+
 }
 
 ?>

@@ -26,23 +26,24 @@ include_once("header.php");
 
 	<h2><span class="title">Pizza Menu</span></h2>
 
-		<?php
+	<?php
 
-		foreach ($pizzaList as $pizza) {
+	foreach ($pizzaList as $pizza) {
 
-			echo "<div id='grid-item'>";
-			echo "<img src=$pizza->img_url height='200px' width='250px'>";
-			echo "<hr>";
+		echo "<div id='grid-item'>";
+		echo "<img src=$pizza->img_url height='200px' width='250px'>";
+		echo "<hr>";
 
-			echo "<div class='details'>";
-			echo "<div class='name' data-toggle='tooltip' data-placement='top' title='$pizza->display_name'>$pizza->display_name</div>";
-			echo "<div class='desc' data-toggle='tooltip' data-placement='top' title='$pizza->description'>$pizza->description</div>";
-			echo "<div class='price'>Starting from <b>Rs. $pizza->p_price</b></div>";
-			echo "<button class='button'><i class='fa fa-shopping-cart'></i>Add to Cart</button>";
-			echo "</div>";
-			echo "</div>";
-		}
-		?>
+		echo "<div class='details'>";
+		echo "<div class='name' data-toggle='tooltip' data-placement='top' title='$pizza->display_name'>$pizza->display_name</div>";
+		echo "<div class='desc' data-toggle='tooltip' data-placement='top' title='$pizza->description'>$pizza->description</div>";
+		echo "<div class='price'>Starting from <b>Rs. $pizza->p_price</b></div>";
+		echo "<button class='button' onclick=\"window.location.href='/PizzaNow/index.php/Menu/customize'\">
+              <i class='fa fa-shopping-cart'></i>Add to Cart</button>";
+		echo "</div>";
+		echo "</div>";
+	}
+	?>
 
 	<div id="bottom-line"></div>
 </div>
@@ -52,7 +53,7 @@ include_once("footer.php");
 ?>
 
 <script>
-	$(document).ready(function(){
+	$(document).ready(function () {
 		$('[data-toggle="tooltip"]').tooltip();
 	});
 </script>
