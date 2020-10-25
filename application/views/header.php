@@ -1,7 +1,6 @@
 <html lang="en">
 <head>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link href="/PizzaNow/css/header.css" rel="stylesheet">
 
 	<style>
 		.header {
@@ -33,6 +32,24 @@
 			text-decoration: none !important;
 			width: 100%;
 		}
+
+		/* adding the hover effect to the navigation bar */
+		li a:hover:not(.active) {
+			background-color: #373635;
+		}
+
+		img.logo {
+			display: inline-block;
+			float:left;
+			width: 25%;
+			height: 15%;
+			margin-left: 5%;
+		}
+
+		i {
+			margin-right: 10%;
+		}
+
 	</style>
 </head>
 

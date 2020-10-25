@@ -11,6 +11,14 @@
 			background-color: #000000;
 		}
 
+		.para {
+			display: block;
+			margin-block-start: 1em;
+			margin-block-end: 1em;
+			margin-inline-start: 0px;
+			margin-inline-end: 0px;
+		}
+
 		.cv {
 			color: white;
 		}
@@ -21,7 +29,7 @@
 
 <div class="footer">
 	<footer>
-		<p>&copy; 2020 PizzaNow! | Designed by - <a href="/PizzaNow/index.php/HomePage/myCV"
+		<p class="para">&copy; 2020 PizzaNow! | Designed by - <a href="/PizzaNow/index.php/HomePage/myCV"
 													class="cv">M.A Samasha Nayananthi</a></p>
 	</footer>
 </div>
