@@ -24,20 +24,20 @@ include_once("header.php");
 
 <div id="grid-container">
 
-	<h2><span class="title">Pizza Menu</span></h2>
+	<h2><span class="title" id="deals">Special Deals</span></h2>
 
 		<?php
 
-		foreach ($pizzaList as $pizza) {
+		foreach ($dealsList as $deal) {
 
 			echo "<div id='grid-item'>";
-			echo "<img src=$pizza->img_url height='200px' width='250px'>";
+			echo "<img src=$deal->img_url height='200px' width='250px'>";
 			echo "<hr>";
 
 			echo "<div class='details'>";
-			echo "<div class='name' data-toggle='tooltip' data-placement='top' title='$pizza->display_name'>$pizza->display_name</div>";
-			echo "<div class='desc' data-toggle='tooltip' data-placement='top' title='$pizza->description'>$pizza->description</div>";
-			echo "<div class='price'>Starting from <b>Rs. $pizza->p_price</b></div>";
+			echo "<div class='name' data-toggle='tooltip' data-placement='top' title='$deal->display_name'>$deal->display_name</div>";
+			echo "<div class='desc' data-toggle='tooltip' data-placement='top' title='$deal->description'>$deal->description</div>";
+			echo "<div class='price'>Price <b>Rs. $deal->price</b></div>";
 			echo "<button class='button'><i class='fa fa-shopping-cart'></i>Add to Cart</button>";
 			echo "</div>";
 			echo "</div>";
@@ -45,6 +45,7 @@ include_once("header.php");
 		?>
 
 	<div id="bottom-line"></div>
+
 </div>
 
 <?php

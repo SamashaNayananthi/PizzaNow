@@ -8,7 +8,7 @@ class MenuModel extends CI_Model {
 
 	public function getAllPizza(){
 		$query = $this->db->get('pizza');
-		return $query->result();
+		return array('pizzaList' => $query->result());
 	}
 
 	public function getOtherItems($type){
@@ -16,9 +16,13 @@ class MenuModel extends CI_Model {
 		return $query->result();
 	}
 
-	public function getMenu(){
-		return array('pizzaList' => $this->getAllPizza(), 'appetizersList' => $this->getOtherItems('APPETIZER'),
+	public function getAppetizersAndDrinks(){
+		return array('appetizersList' => $this->getOtherItems('APPETIZER'),
 			'drinksList' => $this->getOtherItems('DRINK'));
+	}
+
+	public function getDeals(){
+		return array('dealsList' => $this->getOtherItems('DEAL'));
 	}
 }
 ?>

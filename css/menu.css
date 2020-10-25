@@ -7,9 +7,12 @@ body {
 #links-to-sections a{
 	color: white;
 	text-decoration: none;
-	margin: 0 10%;
 	font-size: 16px;
-	padding: 0 1% 0 5%;
+	padding: 1% 5%;
+}
+
+#links-to-sections a:hover:not(.active) {
+	background-color: #b33e0c;
 }
 
 h2 {
@@ -30,7 +33,7 @@ h2 .title {
 #grid-container {
 	display: grid;
 	grid-column-gap: 5%;
-	grid-row-gap: 1%;
+	grid-row-gap: 5%;
 	grid-template-columns: auto auto auto auto;
 	padding: 0 1%;
 	margin: 3% 0;
@@ -82,4 +85,10 @@ h2 .title {
 	cursor: pointer;
 	width: 100%;
 	margin-top: 5%;
+}
+
+#bottom-line {
+	grid-column-start: 1;
+	grid-column-end: 5;
+	margin-bottom: 5%;
 }
