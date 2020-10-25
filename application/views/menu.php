@@ -112,6 +112,22 @@ include_once("header.php");
 //	}
 //	?>
 
+	<div id='grid-item'>
+		<img src='/PizzaNow/images/deals/myTreat.jpg' height='200px' width='250px'>
+		<hr>
+		<div class='details'>
+			<div class='name' data-toggle='tooltip' data-placement='top' title='My Treat'>
+				My Treat
+			</div>
+			<div class='desc' data-toggle='tooltip' data-placement='top' title='1 Deviled Chicken Personal Pan Pizza +
+1/2 portion of Garlic Bread + 1 pet Coke (200ml)'>1 Deviled Chicken Personal Pan Pizza +
+				1/2 portion of Garlic Bread + 1 pet Coke (200ml)
+			</div>
+			<div class='price'>Price <b>Rs. 600</b></div>
+			<button class='button'><i class='fa fa-shopping-cart'></i>Add to Cart</button>
+		</div>
+	</div>
+
 </div>
 
 <?php
