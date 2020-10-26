@@ -21,10 +21,12 @@ class Menu extends CI_Controller {
 		$this->load->view('deals', $deals);
 	}
 
-	public function customize(){
+	public function customizePizza(){
+		$id = $this->uri->segment(3);
 		$this->load->model('MenuModel');
-		$details = array('toppingsList' => $this ->MenuModel->getAllToppings());
-		$this->load->view('customize',  $details);
+		$details = $this->MenuModel->getPizzaById($id);
+		$details = array('details' => $details, 'toppingsList' => $this ->MenuModel->getAllToppings());
+		$this->load->view('customize_pizza',  $details);
 	}
 
 }

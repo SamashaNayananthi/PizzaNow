@@ -38,7 +38,7 @@ include_once("header.php");
 		echo "<div class='name' data-toggle='tooltip' data-placement='top' title='$appetizer->display_name'>$appetizer->display_name</div>";
 		echo "<div class='desc' data-toggle='tooltip' data-placement='top' title='$appetizer->description'>$appetizer->description</div>";
 		echo "<div class='price'>Price <b>Rs. $appetizer->price</b></div>";
-		echo "<button class='button'><i class='fa fa-shopping-cart'></i>Add to Cart</button>";
+		echo "<button class='button'><i class='fa fa-cart-plus'></i>Add to Cart</button>";
 		echo "</div>";
 		echo "</div>";
 	}
@@ -59,7 +59,7 @@ include_once("header.php");
 		echo "<div class='name' data-toggle='tooltip' data-placement='top' title='$drink->display_name'>$drink->display_name</div>";
 		echo "<div class='desc' data-toggle='tooltip' data-placement='top' title='$drink->description'>$drink->description</div>";
 		echo "<div class='price'>Price <b>Rs. $drink->price</b></div>";
-		echo "<button class='button'><i class='fa fa-shopping-cart'></i>Add to Cart</button>";
+		echo "<button class='button'><i class='fa fa-cart-plus'></i>Add to Cart</button>";
 		echo "</div>";
 		echo "</div>";
 	}

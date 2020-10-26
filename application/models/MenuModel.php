@@ -11,6 +11,11 @@ class MenuModel extends CI_Model {
 		return $query->result();
 	}
 
+	public function getPizzaById($id){
+		$query = $this->db->get_where('pizza', array('id' => $id));
+		return $query->row();
+	}
+
 	public function getOtherItems($type){
 		$query = $this->db->get_where('other_items', array('type' => $type));
 		return $query->result();
