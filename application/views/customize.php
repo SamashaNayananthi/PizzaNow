@@ -44,49 +44,25 @@ include_once("header.php");
 			<h2>Toppings</h2>
 
 			<div id="grid-container">
-				<div id='grid-item'>
-					<img src="/PizzaNow/images/toppings/cheese.jpg" height='50px' width='75px'>
 
-					<div class="details">
-						<b>Cheese</b>
-						<br>
-						(Rs. 150)
-					</div>
-				</div>
+				<?php
 
-				<div id='grid-item'>
-					<img src="/PizzaNow/images/toppings/cheese.jpg" height='50px' width='75px'>
+				foreach ($toppingsList as $topping) {
 
-					<div class="details">
-						<b>Cheese</b>
-						<br>
-						(Rs. 150)
-					</div>
-				</div>
+					echo "<div id='grid-item'>";
+					echo "<input id=$topping->display_name type='checkbox' name=$topping->display_name />";
+					echo "<label for=$topping->display_name>";
+					echo "<img src=$topping->img_url height='50px' width='75px'>";
+					echo "<div class='details'><b>$topping->display_name</b><br>$topping->price</div>";
+					echo "</label>";
+					echo "</div>";
+				}
+				?>
 
-				<div id='grid-item'>
-					<img src="/PizzaNow/images/toppings/cheese.jpg" height='50px' width='75px'>
-
-					<div class="details">
-						<b>Cheese</b>
-						<br>
-						(Rs. 150)
-					</div>
-				</div>
-
-				<div id='grid-item'>
-					<img src="/PizzaNow/images/toppings/cheese.jpg" height='50px' width='75px'>
-
-					<div class="details">
-						<b>Cheese</b>
-						<br>
-						(Rs. 150)
-					</div>
-				</div>
 			</div>
-		</div>
 
-		Quantity - <input type="number" class="quantity" name="quantity" value="1" min="1" max="10">
+		<b>Quantity - </b><input type="number" class="quantity" name="quantity" value="1" min="1" max="10"
+						  oninput="validity.valid||(value='');">
 
 		<button class='button' onclick="window.location.href=''"><i class='fa fa-shopping-cart'></i>Add to Cart</button>
 	</div>

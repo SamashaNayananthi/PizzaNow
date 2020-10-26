@@ -46,7 +46,7 @@ body {
 	width: 66%;
 }
 
-#right-pane label {
+#right-pane .radio-inline {
 	margin: 1% 5%;
 }
 
@@ -57,10 +57,42 @@ body {
 	grid-template-columns: auto auto auto auto;
 }
 
-#grid-item {
-	background-color: white;
-	padding: 2%;
+#grid-item label {
 	border: solid;
+	-webkit-font-smoothing: antialiased;
+	text-align: center;
+	padding: 5%;
+	border-radius: 10%;
+	cursor: pointer;
+	width: 100%;
+}
+
+#grid-item input[type=checkbox] {
+	display: none;
+}
+
+#grid-item input:checked + label {
+	border: solid green;
+	color: green;
+}
+
+input:checked + label:before {
+	content: "\2713 ";
+	font-weight: bold;
+	font-size: x-large;
+}
+
+/* new stuff */
+#grid-item .check {
+	visibility: hidden;
+}
+
+#grid-item input:checked + label .check {
+	visibility: visible;
+}
+
+#grid-item input.checkbox:checked + label:before {
+	content: "";
 }
 
 #grid-item .details {
@@ -77,9 +109,19 @@ body {
 	width: 70%;
 	margin-top: 5%;
 	float: right;
+	font-weight: bold;
 }
 
 #right-pane .quantity  {
 	margin-top: 5%;
 	width: 10%;
+	background-color: #ffc300;
+	padding: 1%;
+	font-size: 15px;
+	border: solid;
+	font-weight: bold;
+}
+
+#right-pane input[type=number]::-webkit-inner-spin-button {
+	opacity: 1;
 }

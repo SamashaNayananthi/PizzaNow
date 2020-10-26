@@ -4,21 +4,27 @@ class Menu extends CI_Controller {
 
 	public function index(){
 		$this->load->model('MenuModel');
-		$this->load->view('menu', $this ->MenuModel->getAllPizza());
+		$pizza = array('pizzaList' => $this ->MenuModel->getAllPizza());
+		$this->load->view('menu', $pizza);
 	}
 
 	public function appetizers(){
 		$this->load->model('MenuModel');
-		$this->load->view('appetizers', $this ->MenuModel->getAppetizersAndDrinks());
+		$appetizers =  array('appetizersList' => $this ->MenuModel->getOtherItems('APPETIZER'),
+			'drinksList' => $this ->MenuModel->getOtherItems('DRINK'));
+		$this->load->view('appetizers', $appetizers);
 	}
 
 	public function deals(){
 		$this->load->model('MenuModel');
-		$this->load->view('deals', $this ->MenuModel->getDeals());
+		$deals = array('dealsList' => $this->MenuModel->getOtherItems('DEAL'));
+		$this->load->view('deals', $deals);
 	}
 
 	public function customize(){
-		$this->load->view('customize');
+		$this->load->model('MenuModel');
+		$details = array('toppingsList' => $this ->MenuModel->getAllToppings());
+		$this->load->view('customize',  $details);
 	}
 
 }
