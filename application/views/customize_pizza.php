@@ -71,7 +71,7 @@ include_once("header.php");
 		<b>Quantity - </b><input type="number" id="quantity" class="quantity" name="quantity" value="1" min="1" max="10"
 						  oninput="validity.valid||(value='');">
 
-		<button class='button' onclick="window.location.href=''">
+		<button class='button' onclick="window.location.href='/PizzaNow/index.php/MyCart/index'">
 			<i class='fa fa-cart-plus'></i>Add to Cart <span id="customizedPrice"></span>
 		</button>
 	</div>

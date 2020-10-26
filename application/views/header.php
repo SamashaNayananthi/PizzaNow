@@ -60,7 +60,7 @@
 	<nav>
 		<ul>
 			<li><a href="/PizzaNow/index.php/HomePage/aboutUs"><i class="fa fa-users"></i>About us</a> </li>
-			<li><a href=""><i class="fa fa-shopping-cart"></i>My Cart</a> </li>
+			<li><a href="/PizzaNow/index.php/MyCart/index"><i class="fa fa-shopping-cart"></i>My Cart</a> </li>
 			<li><a href="/PizzaNow/index.php/Menu/index"><i class="fa fa-book"></i>Menu</a> </li>
 			<li><a href="/PizzaNow/index.php/HomePage/index"><i class="fa fa-home"></i>Home</a> </li>
 		</ul>
