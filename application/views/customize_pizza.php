@@ -27,6 +27,7 @@ include_once("header.php");
 		<div class='details'>
 			<?php
 
+			echo "<div hidden id='itemId'>$details->id</div>";
 			echo "<div class='name' data-toggle='tooltip' data-placement='top' title='$details->display_name'>$details->display_name</div>";
 			echo "<div class='desc' data-toggle='tooltip' data-placement='top' title='$details->description'>$details->description</div>";
 
@@ -36,15 +37,15 @@ include_once("header.php");
 
 	<div id="right-pane">
 		<label class="radio-inline">
-			<input type="radio" name="optradio" checked value="<?php echo $details->s_price ?>"><b>Small</b> (Rs. <?php echo $details->s_price ?>)
+			<input type="radio" name="optradio" class="small" checked value="<?php echo $details->s_price ?>"><b>Small</b> (Rs. <?php echo $details->s_price ?>)
 		</label>
 
 		<label class="radio-inline">
-			<input type="radio" name="optradio" value="<?php echo $details->m_price ?>"><b>Medium</b> (Rs. <?php echo $details->m_price ?>)
+			<input type="radio" name="optradio" class="medium" value="<?php echo $details->m_price ?>"><b>Medium</b> (Rs. <?php echo $details->m_price ?>)
 		</label>
 
 		<label class="radio-inline">
-			<input type="radio" name="optradio" value="<?php echo $details->l_price ?>"><b>Large</b> (Rs. <?php echo $details->l_price ?>)
+			<input type="radio" name="optradio" class="large" value="<?php echo $details->l_price ?>"><b>Large</b> (Rs. <?php echo $details->l_price ?>)
 		</label>
 
 		<div class="toppings">
@@ -57,9 +58,10 @@ include_once("header.php");
 				foreach ($toppingsList as $topping) {
 
 					echo "<div id='grid-item'>";
-					echo "<input id=$topping->display_name type='checkbox' name=$topping->display_name value='$topping->price'/>";
+					echo "<input id=$topping->display_name class=$topping->display_name type='checkbox' name=$topping->display_name value='$topping->price'/>";
 					echo "<label for=$topping->display_name>";
 					echo "<img src=$topping->img_url height='50px' width='75px'>";
+					echo "<div id='displayName' hidden>$topping->display_name</div>";
 					echo "<div class='details'><b>$topping->display_name</b><br>$topping->price</div>";
 					echo "</label>";
 					echo "</div>";
@@ -71,7 +73,7 @@ include_once("header.php");
 		<b>Quantity - </b><input type="number" id="quantity" class="quantity" name="quantity" value="1" min="1" max="10"
 						  oninput="validity.valid||(value='');">
 
-		<button class='button' onclick="window.location.href='/PizzaNow/index.php/MyCart/index'">
+		<button class='button' name="add_to_cart">
 			<i class='fa fa-cart-plus'></i>Add to Cart <span id="customizedPrice"></span>
 		</button>
 	</div>
@@ -122,6 +124,38 @@ include_once("footer.php");
 
 		document.getElementById("customizedPrice").innerHTML = "(Rs. " + customizedTotal + ")";
 	}
+
+	$(document).ready(function(){
+		$('.button').click(function(){
+			let selectedPrice;
+			let selectedToppings = [];
+
+			$("input[type=radio]:checked").each(function() {
+				selectedPrice = parseFloat($(this).val());
+			});
+
+			$(":checkbox").each(function(i){
+					if(this.checked){
+						selectedToppings.push({index: i, price: parseFloat($(this).val())});
+					}
+			});
+
+			$.ajax({
+				url:"/PizzaNow/index.php/MyCart/addToCart",
+				method: "POST",
+				data: {
+					type: "pizza",
+					id: $("#itemId").text(),
+					selectedPrice: selectedPrice,
+					selectedToppings: selectedToppings,
+					quantity: document.getElementById("quantity").value
+				},
+				success: function() {
+					window.location = "/PizzaNow/index.php/MyCart/index";
+				}
+			});
+		});
+	});
 
 </script>
 
