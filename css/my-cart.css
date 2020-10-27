@@ -3,3 +3,93 @@ body {
 	height:100%;
 	background-color: #230202;
 }
+
+h2 {
+	width: 100%;
+	text-align: center;
+	border-bottom: 3px solid white;
+	line-height: 0.1em;
+	grid-column-start: 1;
+	grid-column-end: 5;
+}
+
+h2 .title {
+	color: white;
+	background:#230202;
+	padding:0 10px;
+}
+
+.table-container {
+	background-color: antiquewhite;
+	margin: 3% 5% 5% 5%;
+	padding: 1%;
+}
+
+th {
+	background-color: grey;
+	font-size: large;
+	text-align: center !important;
+}
+
+td {
+	font-size: medium;
+	text-align: center !important;
+}
+
+.del-button {
+	border: none;
+	padding: 0;
+	font-size: larger;
+	background-color: antiquewhite;
+	cursor: pointer;
+}
+
+.button {
+	padding: 0;
+	border: none;
+	margin: 0 5%;
+	cursor: pointer;
+}
+
+.left-align {
+	text-align: left !important;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+	opacity: 1;
+}
+
+.last-row {
+	background-color: ghostwhite;
+}
+
+.total, .tot-price {
+	font-weight: bold;
+}
+
+.total {
+	text-align: right !important;
+}
+
+.continue-shopping {
+	color: white;
+	float: left;
+	margin: 0 0 0 5%;
+	width: 25%;
+	font-size: large;
+}
+
+.checkout {
+	background-color: #ffc300;
+	border: solid;
+	padding: 1%;
+	text-align: center;
+	font-size: 15px;
+	cursor: pointer;
+	width: 25%;
+	float: right;
+	font-weight: bold;
+	margin: 0 5% 0 0;
+	font-size: large;
+}
+
