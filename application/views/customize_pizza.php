@@ -73,7 +73,7 @@ include_once("header.php");
 		<b>Quantity - </b><input type="number" id="quantity" class="quantity" name="quantity" value="1" min="1" max="10"
 						  oninput="validity.valid||(value='');">
 
-		<button class='button' name="add_to_cart">
+		<button class='button' name="add_to_cart" onclick="addToCart(<?php echo "'$details->display_name'" ?>)">
 			<i class='fa fa-cart-plus'></i>Add to Cart <span id="customizedPrice"></span>
 		</button>
 	</div>
@@ -125,46 +125,43 @@ include_once("footer.php");
 		document.getElementById("customizedPrice").innerHTML = "(Rs. " + customizedTotal + ")";
 	}
 
-	$(document).ready(function(){
-		$('.button').click(function(){
+	function addToCart(name) {
 
-			let quantity = document.getElementById("quantity").value;
-			let selectedPrice;
-			let selectedToppings = [];
+		let quantity = document.getElementById("quantity").value;
+		let selectedPrice;
+		let selectedToppings = [];
 
-			if (quantity == "" || quantity == 0) {
+		if (quantity == "" || quantity == 0) {
+			alert("Please select a quantity to proceed you're order");
 
-				alert("Please select a quantity to proceed you're order");
+		} else {
+			$("input[type=radio]:checked").each(function() {
+				selectedPrice = parseFloat($(this).val());
+			});
 
-			} else {
+			$(":checkbox").each(function(i){
+				if(this.checked){
+					selectedToppings.push(i);
+				}
+			});
 
-				$("input[type=radio]:checked").each(function() {
-					selectedPrice = parseFloat($(this).val());
-				});
-
-				$(":checkbox").each(function(i){
-					if(this.checked){
-						selectedToppings.push(i);
-					}
-				});
-
-				$.ajax({
-					url:"/PizzaNow/index.php/MyCart/addToCart",
-					method: "POST",
-					data: {
-						type: "pizza",
-						id: $("#itemId").text(),
-						selectedPrice: selectedPrice,
-						selectedToppings: selectedToppings,
-						quantity: quantity
-					},
-					success: function() {
-						window.location = "/PizzaNow/index.php/MyCart/index";
-					}
-				});
-			}
-		});
-	});
+			$.ajax({
+				url:"/PizzaNow/index.php/MyCart/addToCart",
+				method: "POST",
+				data: {
+					type: "PIZZA",
+					id: $("#itemId").text(),
+					selectedPrice: selectedPrice,
+					selectedToppings: selectedToppings,
+					quantity: quantity,
+					displayName: name
+				},
+				success: function() {
+					window.location = "/PizzaNow/index.php/MyCart/index";
+				}
+			});
+		}
+	}
 
 </script>
 

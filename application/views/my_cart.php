@@ -14,60 +14,80 @@
 include_once("header.php");
 ?>
 
-<h2><span class="title">Pizza Menu</span></h2>
+<h2><span class="title">My Cart</span></h2>
 
 <div class="table-container w3-container">
-	<?php
-	echo "$isSet";
-	if ($isSet) {
-		echo serialize($data);
-	}
-	?>
+
 	<table class="w3-table w3-bordered">
-		<tr>
-			<th>Item</th>
-			<th>Price (Rs.)</th>
-			<th>Quantity</th>
-			<th>Sub Total (Rs.)</th>
-			<th></th>
-		</tr>
+		<?php
 
-		<tr>
-			<td class="left-align">
-				Chicken Bacon<br>
-				(Cheese,Chicken,Tomato,Cheese,Chicken,Tomato,Cheese,Chicken,Tomato)
-			</td>
-			<td id="row1Price">510</td>
-			<td>
-				<button class='button' onclick="">
-					<i class='fa fa-minus-circle'></i>
-				</button>
-				1
-				<button class='button' onclick="">
-					<i class='fa fa-plus-circle'></i>
-				</button>
-			</td>
-			<td>510</td>
-			<td>
-				<button class='del-button' onclick="">
-					<i class='fa fa-trash'></i>
-				</button>
-			</td>
-		</tr>
+		if ($isSet) {
 
-		<tr class="last-row">
-			<td class="total" colspan="3">Sub Total</td>
-			<td class="tot-price">1000</td>
-			<td></td>
-		</tr>
+			echo "<tr>";
+			echo "<th>Item</th>";
+			echo "<th>Price (Rs.)</th>";
+			echo "<th>Quantity</th>";
+			echo "<th>Sub Total (Rs.)</th>";
+			echo "<th></th>";
+			echo "</tr>";
+
+			foreach ($data as $row) {
+				echo "<tr>";
+				echo "<td class='left-align'>$row->displayName";
+				if ($row->type == "PIZZA" && isset($row->selectedToppings)) {
+					echo "<br><span class='toppings'>Toppings - ";
+					$i = 1;
+					$numItems = count($row->selectedToppings);
+					foreach ($row->selectedToppings as $topping) {
+						if ($i < $numItems) {
+							echo "$topping->display_name, ";
+						} else {
+							echo "$topping->display_name";
+						}
+						$i++;
+					}
+					echo "</span>";
+				}
+				echo "</td>";
+
+				echo "<td>$row->selectedPrice</td>";
+
+				echo "<td><button class='button' onclick=''><i class='fa fa-minus-circle'></i></button>";
+				echo "$row->quantity";
+				echo "<button class='button' onclick=''><i class='fa fa-plus-circle'></i></button></td>";
+
+				echo "<td>$row->subTotal</td>";
+
+				echo "<td><button class='del-button' onclick=''><i class='fa fa-trash'></i></button></td>";
+				echo "</tr>";
+			}
+
+			echo "<tr class='last-row'>";
+			echo "<td class='total' colspan='3'>Sub Total</td>";
+			echo "<td class='tot-price'>$total</td>";
+			echo "<td></td>";
+			echo "</tr>";
+
+		} else {
+			echo "<h3 class='empty-msg'>--  <i class='fa fa-frown-o'></i>Cart is empty  --</h3>";
+			echo "<h4 class='empty-msg'>Looks like you have no items in your cart</h4>";
+		}
+
+		?>
 
 	</table>
 
 </div>
 
-<a class="continue-shopping" href="/PizzaNow/index.php/Menu/index"><i class='fa fa-mail-reply'></i>Continue Shopping</a>
+<div class="bottom">
+	<a class="continue-shopping" href="/PizzaNow/index.php/Menu/index"><i class='fa fa-mail-reply'></i>Continue Shopping</a>
 
-<button  class="checkout" onclick="window.location.href=''"><i class='fa fa-check-square-o'></i>Checkout</button>
+	<?php
+	if ($isSet) {
+		echo "<button  class='checkout'><i class='fa fa-check-square-o'></i>Checkout</button>";
+	}
+	?>
+</div>
 
 
 <?php
@@ -75,24 +95,6 @@ include_once("footer.php");
 ?>
 
 <script>
-
-	$("input[type=number]").click(function() {
-		calculateSubTotal();
-		calculateTotal();
-	});
-
-	$("input[type=number]").keyup(function() {
-		calculateSubTotal();
-		calculateTotal();
-	});
-
-	function calculateSubTotal() {
-
-	}
-
-	function calculateTotal() {
-
-	}
 
 </script>
 

@@ -38,7 +38,8 @@ include_once("header.php");
 			echo "<div class='name' data-toggle='tooltip' data-placement='top' title='$deal->display_name'>$deal->display_name</div>";
 			echo "<div class='desc' data-toggle='tooltip' data-placement='top' title='$deal->description'>$deal->description</div>";
 			echo "<div class='price'>Price <b>Rs. $deal->price</b></div>";
-			echo "<button class='button'><i class='fa fa-cart-plus'></i>Add to Cart</button>";
+			echo "<button class='button' onclick=\"addToCart($deal->id, 'DEAL', $deal->price, '$deal->display_name')\">
+                  <i class='fa fa-cart-plus'></i>Add to Cart</button>";
 			echo "</div>";
 			echo "</div>";
 		}
@@ -56,6 +57,24 @@ include_once("footer.php");
 	$(document).ready(function(){
 		$('[data-toggle="tooltip"]').tooltip();
 	});
+
+	function addToCart(id, type, price, name) {
+
+		$.ajax({
+			url:"/PizzaNow/index.php/MyCart/addToCart",
+			method: "POST",
+			data: {
+				type: type,
+				id: id,
+				selectedPrice: price,
+				quantity: 1,
+				displayName: name
+			},
+			success: function() {
+				window.location = "/PizzaNow/index.php/MyCart/index";
+			}
+		});
+	}
 </script>
 
 </body>
