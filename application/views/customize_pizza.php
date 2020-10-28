@@ -127,33 +127,42 @@ include_once("footer.php");
 
 	$(document).ready(function(){
 		$('.button').click(function(){
+
+			let quantity = document.getElementById("quantity").value;
 			let selectedPrice;
 			let selectedToppings = [];
 
-			$("input[type=radio]:checked").each(function() {
-				selectedPrice = parseFloat($(this).val());
-			});
+			if (quantity == "" || quantity == 0) {
 
-			$(":checkbox").each(function(i){
+				alert("Please select a quantity to proceed you're order");
+
+			} else {
+
+				$("input[type=radio]:checked").each(function() {
+					selectedPrice = parseFloat($(this).val());
+				});
+
+				$(":checkbox").each(function(i){
 					if(this.checked){
-						selectedToppings.push({index: i, price: parseFloat($(this).val())});
+						selectedToppings.push(i);
 					}
-			});
+				});
 
-			$.ajax({
-				url:"/PizzaNow/index.php/MyCart/addToCart",
-				method: "POST",
-				data: {
-					type: "pizza",
-					id: $("#itemId").text(),
-					selectedPrice: selectedPrice,
-					selectedToppings: selectedToppings,
-					quantity: document.getElementById("quantity").value
-				},
-				success: function() {
-					window.location = "/PizzaNow/index.php/MyCart/index";
-				}
-			});
+				$.ajax({
+					url:"/PizzaNow/index.php/MyCart/addToCart",
+					method: "POST",
+					data: {
+						type: "pizza",
+						id: $("#itemId").text(),
+						selectedPrice: selectedPrice,
+						selectedToppings: selectedToppings,
+						quantity: quantity
+					},
+					success: function() {
+						window.location = "/PizzaNow/index.php/MyCart/index";
+					}
+				});
+			}
 		});
 	});
 

@@ -17,6 +17,12 @@ include_once("header.php");
 <h2><span class="title">Pizza Menu</span></h2>
 
 <div class="table-container w3-container">
+	<?php
+	echo "$isSet";
+	if ($isSet) {
+		echo serialize($data);
+	}
+	?>
 	<table class="w3-table w3-bordered">
 		<tr>
 			<th>Item</th>
