@@ -91,7 +91,8 @@ include_once("header.php");
 
 	<?php
 	if ($isSet && $total != 0) {
-		echo "<button  class='checkout'><i class='fa fa-check-square-o'></i>Checkout</button>";
+		echo "<button  class='checkout' onclick=\"window.location.href='/PizzaNow/index.php/Checkout/index'\">
+              <i class='fa fa-check-square-o'></i>Checkout</button>";
 	}
 	?>
 </div>
