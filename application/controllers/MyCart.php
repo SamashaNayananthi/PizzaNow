@@ -68,6 +68,49 @@ class MyCart extends CI_Controller {
 
 	}
 
+	public function changeQuantity() {
+		$index = (int)$this->input->post('index');
+		$type = $this->input->post('type');
+
+		$allItems = $this->session->added_items;
+		$item = $allItems[$index];
+
+		$oldQuantity = $item->quantity;
+		$oldSubTotal = $item->subTotal;
+		$price = $item->selectedPrice;
+		$oldTotal = $this->session->total;
+
+		if ($type == "minus") {
+			$newQuantity = $oldQuantity - 1;
+		} else {
+			$newQuantity = $oldQuantity + 1;
+		}
+
+		$newSubTotal = $newQuantity * $price;
+		$newTotal = $oldTotal - $oldSubTotal + $newSubTotal;
+
+		$item->quantity = $newQuantity;
+		$item->subTotal = $newSubTotal;
+
+		$allItems[$index] = $item;
+		$this->session->set_userdata('added_items', $allItems);
+		$this->session->set_userdata('total', $newTotal);
+	}
+
+	public function deleteItem() {
+		$index = (int)$this->input->post('index');
+
+		$allItems = $this->session->added_items;
+		$item = $allItems[$index];
+
+		$oldTotal = $this->session->total;
+		$newTotal = $oldTotal - $item->subTotal;
+
+		array_splice($allItems,$index,1);
+		$this->session->set_userdata('added_items', $allItems);
+		$this->session->set_userdata('total', $newTotal);
+	}
+
 }
 
 ?>
