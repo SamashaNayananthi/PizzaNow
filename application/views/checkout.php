@@ -20,9 +20,9 @@ include_once("header.php");
 		<div class="container">
 			<?php
 
-			if ($isSet) {
+			if ($isSet && $total != 0) {
 
-				echo "<form action= 'base_url().\"Checkout/placeOrder\"' method='post'>";
+				echo "<form action= '/PizzaNow/index.php/Checkout/placeOrder' method='post'>";
 
 				echo "<div class='row'>";
 				echo "<div class='col-50'>";
@@ -58,6 +58,10 @@ include_once("header.php");
 
 			} else {
 				echo "<div class='success-msg'>Order placed successfully !</div>";
+
+				if ($deliveryTime != 0) {
+					echo "<div class='success-msg'>Your order will be delivered at $deliveryTime.</div>";
+				}
 			}
 			?>
 
