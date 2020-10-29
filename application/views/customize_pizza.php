@@ -146,7 +146,7 @@ include_once("footer.php");
 			});
 
 			$.ajax({
-				url:"/PizzaNow/index.php/MyCart/addToCart",
+				url:"<?php echo base_url()."MyCart/addToCart" ?>",
 				method: "POST",
 				data: {
 					type: "PIZZA",
@@ -157,7 +157,7 @@ include_once("footer.php");
 					displayName: name
 				},
 				success: function() {
-					window.location = "/PizzaNow/index.php/MyCart/index";
+					window.location = "<?php echo base_url()."MyCart/index" ?>";
 				}
 			});
 		}

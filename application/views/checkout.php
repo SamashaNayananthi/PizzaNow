@@ -22,7 +22,7 @@ include_once("header.php");
 
 			if ($isSet) {
 
-				echo "<form action='/PizzaNow/index.php/Checkout/placeOrder' method='post'>";
+				echo "<form action= 'base_url().\"Checkout/placeOrder\"' method='post'>";
 
 				echo "<div class='row'>";
 				echo "<div class='col-50'>";
@@ -47,7 +47,8 @@ include_once("header.php");
 					  <input type='text' id='adr' name='address' required>";
 
 				echo "<label for='tel'>Phone Number</label>
-					  <input type='tel' id='tel' name='phonenumber' maxlength='10' min='10' required>";
+					  <input type='tel' id='tel' name='phonenumber' maxlength='10' min='10' required
+					  placeholder='eg : 0711653043'>";
 
 				echo "</div>
 				      </div>";

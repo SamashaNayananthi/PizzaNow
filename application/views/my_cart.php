@@ -87,7 +87,7 @@ include_once("header.php");
 </div>
 
 <div class="bottom">
-	<a class="continue-shopping" href="/PizzaNow/index.php/Menu/index"><i class='fa fa-mail-reply'></i>Continue Shopping</a>
+	<a class="continue-shopping" href="<?php echo base_url().'Menu/index' ?>"><i class='fa fa-mail-reply'></i>Continue Shopping</a>
 
 	<?php
 	if ($isSet && $total != 0) {
@@ -107,14 +107,14 @@ include_once("footer.php");
 	function changeQuantity(type,index, quantity) {
 		if ((type == "minus" && quantity != 1) || type == "plus") {
 			$.ajax({
-				url:"/PizzaNow/index.php/MyCart/changeQuantity",
+				url:"<?php echo base_url()."MyCart/changeQuantity" ?>",
 				method: "POST",
 				data: {
 					index: index,
 					type: type
 				},
 				success: function() {
-					window.location = "/PizzaNow/index.php/MyCart/index";
+					window.location = "<?php echo base_url()."MyCart/index" ?>";
 				}
 			});
 		}
@@ -122,13 +122,13 @@ include_once("footer.php");
 
 	function deleteItem(index) {
 		$.ajax({
-			url: "/PizzaNow/index.php/MyCart/deleteItem",
+			url: "<?php echo base_url()."MyCart/deleteItem" ?>",
 			method: "POST",
 			data: {
 				index: index
 			},
 			success: function () {
-				window.location = "/PizzaNow/index.php/MyCart/index";
+				window.location = "<?php echo base_url()."MyCart/index" ?>";
 			}
 		});
 	}

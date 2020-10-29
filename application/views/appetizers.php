@@ -17,9 +17,9 @@ include_once("header.php");
 ?>
 
 <div id="links-to-sections">
-	<a href="/PizzaNow/index.php/Menu/index">Pizza</a>
-	<a href="/PizzaNow/index.php/Menu/appetizers">Appetizers & Drinks</a>
-	<a href="/PizzaNow/index.php/Menu/deals">Special Deals</a>
+	<a href="<?php echo base_url()."Menu/index" ?>">Pizza</a>
+	<a href="<?php echo base_url()."Menu/appetizers" ?>">Appetizers & Drinks</a>
+	<a href="<?php echo base_url()."Menu/deals" ?>">Special Deals</a>
 </div>
 
 <div id="grid-container">
@@ -83,7 +83,7 @@ include_once("footer.php");
 	function addToCart(id, type, price, name) {
 
 		$.ajax({
-			url:"/PizzaNow/index.php/MyCart/addToCart",
+			url:"<?php echo base_url()."MyCart/addToCart" ?>",
 			method: "POST",
 			data: {
 				type: type,
@@ -93,7 +93,7 @@ include_once("footer.php");
 				displayName: name
 			},
 			success: function() {
-				window.location = "/PizzaNow/index.php/MyCart/index";
+				window.location = "<?php echo base_url()."MyCart/index" ?>";
 			}
 		});
 	}

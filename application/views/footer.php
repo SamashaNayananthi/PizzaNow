@@ -29,7 +29,7 @@
 
 <div class="footer">
 	<footer>
-		<p class="para">&copy; 2020 PizzaNow! | Designed by - <a href="/PizzaNow/index.php/HomePage/myCV"
+		<p class="para">&copy; 2020 PizzaNow! | Designed by - <a href="<?php echo base_url()."HomePage/myCV" ?>"
 													class="cv">M.A Samasha Nayananthi</a></p>
 	</footer>
 </div>

@@ -63,10 +63,10 @@
 	<img src="/PizzaNow/images/logo.png" class="logo">
 	<nav>
 		<ul>
-			<li><a href="/PizzaNow/index.php/HomePage/aboutUs"><i class="fa fa-users"></i>About us</a> </li>
-			<li><a href="/PizzaNow/index.php/MyCart/index"><i class="fa fa-shopping-cart"></i>My Cart</a> </li>
-			<li><a href="/PizzaNow/index.php/Menu/index"><i class="fa fa-book"></i>Menu</a> </li>
-			<li><a href="/PizzaNow/index.php/HomePage/index"><i class="fa fa-home"></i>Home</a> </li>
+			<li><a href="<?php echo base_url()."HomePage/aboutUs" ?>"><i class="fa fa-users"></i>About us</a> </li>
+			<li><a href="<?php echo base_url()."MyCart/index" ?>"><i class="fa fa-shopping-cart"></i>My Cart</a> </li>
+			<li><a href="<?php echo base_url()."Menu/index" ?>"><i class="fa fa-book"></i>Menu</a> </li>
+			<li><a href="<?php echo base_url()."HomePage/index" ?>"><i class="fa fa-home"></i>Home</a> </li>
 		</ul>
 	</nav>
 </header>

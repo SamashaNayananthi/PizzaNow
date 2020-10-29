@@ -17,9 +17,9 @@ include_once("header.php");
 ?>
 
 <div id="links-to-sections">
-	<a href="/PizzaNow/index.php/Menu/index">Pizza</a>
-	<a href="/PizzaNow/index.php/Menu/appetizers">Appetizers & Drinks</a>
-	<a href="/PizzaNow/index.php/Menu/deals">Special Deals</a>
+	<a href="<?php echo base_url()."Menu/index" ?>">Pizza</a>
+	<a href="<?php echo base_url()."Menu/appetizers" ?>">Appetizers & Drinks</a>
+	<a href="<?php echo base_url()."Menu/deals" ?>">Special Deals</a>
 </div>
 
 <div id="grid-container">
