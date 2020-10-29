@@ -18,39 +18,48 @@ include_once("header.php");
 <div class="row">
 	<div class="col-75">
 		<div class="container">
-			<form action="">
+			<?php
 
-				<div class="row">
-					<div class="col-50">
-						<div class="page-title">Delivery Details</div>
-						<br>
+			if ($isSet) {
 
-						<div class="first-row">
-							<label for="title">Title</label>
-							<select name="title" id="title" class="row-item">
-								<option value="Mr">Mr</option>
-								<option value="Mrs">Mrs</option>
-								<option value="Miss">Miss</option>
-							</select>
+				echo "<form action='/PizzaNow/index.php/Checkout/placeOrder' method='post'>";
 
-							<label for="fname">First Name</label>
-							<input type="text" id="fname" name="firstname" class="row-item">
+				echo "<div class='row'>";
+				echo "<div class='col-50'>";
+				echo "<div class='page-title'>Delivery Details</div><br>";
+				echo "<div class='first-row'>";
 
-							<label for="lname">Last Name</label>
-							<input type="text" id="lname" name="lastname" class="row-item">
-						</div>
+				echo "<label for='title'>Title</label>
+                      <select name='title' id='title' class='row-item' required>
+                      <option value='Mr'>Mr</option>
+                      <option value='Mrs'>Mrs</option>
+					  <option value='Miss'>Miss</option>
+					  </select>";
 
-						<label for="adr">Address</label>
-						<input type="text" id="adr" name="address">
+				echo "<label for='fname'>First Name</label>
+					  <input type='text' id='fname' name='firstname' class='row-item' required>";
 
-						<label for="tel">Phone Number</label>
-						<input type="tel" id="tel" name="phonenumber" maxlength="10" min="10">
+				echo "<label for='lname'>Last Name</label>
+					  <input type='text' id='lname' name='lastname' class='row-item' required>";
+				echo "</div>";
 
-					</div>
-				</div>
+				echo "<label for='adr'>Address</label>
+					  <input type='text' id='adr' name='address' required>";
 
-				<input type="submit" value="Place Order" class="btn">
-			</form>
+				echo "<label for='tel'>Phone Number</label>
+					  <input type='tel' id='tel' name='phonenumber' maxlength='10' min='10' required>";
+
+				echo "</div>
+				      </div>";
+
+				echo "<input type='submit' value='Place Order (Total - Rs. $total)' class='btn'>";
+				echo "</form>";
+
+			} else {
+				echo "<div class='success-msg'>Order placed successfully !</div>";
+			}
+			?>
+
 		</div>
 	</div>
 </div>

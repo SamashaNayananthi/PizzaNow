@@ -87,6 +87,13 @@ input[type=tel] {
 	font-size: large;
 }
 
+.success-msg {
+	text-align: center;
+	font-size: x-large;
+	font-weight: bold;
+	padding: 2%;
+}
+
 @media (max-width: 800px) {
 	.row {
 		flex-direction: column-reverse;
