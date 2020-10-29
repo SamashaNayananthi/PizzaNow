@@ -51,7 +51,23 @@ class MyCart extends CI_Controller {
 
 		if ($this->session->has_userdata('added_items')) {
 			$currentItems = $this->session->added_items;
-			array_push($currentItems, $newItem);
+			if ($type != "PIZZA") {
+				$matchedItem = FALSE;
+				foreach ($currentItems as $updatingItem) {
+					if ($newItem->id == $updatingItem->id && $newItem->type == $updatingItem->type) {
+						$matchedItem = TRUE;
+						$updatingItem->quantity = $updatingItem->quantity +1;
+						$updatingItem->subTotal = $updatingItem->selectedPrice * $updatingItem->quantity;
+					}
+				}
+
+				if (!$matchedItem) {
+					array_push($currentItems, $newItem);
+				}
+			} else {
+				array_push($currentItems, $newItem);
+			}
+
 			$this->session->set_userdata('added_items', $currentItems);
 
 			$currentTotal = $this->session->total;
