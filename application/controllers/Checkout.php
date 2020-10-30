@@ -24,17 +24,18 @@ class Checkout extends CI_Controller {
 
 
 
+
 		$this->session->unset_userdata('added_items');
 		$this->session->unset_userdata('total');
 
-		$this->submit($deliveryTime);
+		$this->submit($deliveryTime, $firstname);
 	}
 
-	public function submit($deliveryTime) {
+	public function submit($deliveryTime, $firstname) {
 		if ($this->session->has_userdata('added_items')) {
 			$data = array("isSet" => TRUE, "total" => $this->session->total);
 		} else {
-			$data = array("isSet" => FALSE, "deliveryTime" => $deliveryTime);
+			$data = array("isSet" => FALSE, "deliveryTime" => $deliveryTime, "firstname" => $firstname);
 		}
 
 		$this->load->view('checkout', $data);

@@ -22,7 +22,8 @@ include_once("header.php");
 
 			if ($isSet && $total != 0) {
 
-				echo "<form action= '/PizzaNow/index.php/Checkout/placeOrder' method='post'>";
+				echo "<form action= '/PizzaNow/index.php/Checkout/placeOrder' method='post' 
+				      onSubmit='return checkform()'>";
 
 				echo "<div class='row'>";
 				echo "<div class='col-50'>";
@@ -59,8 +60,8 @@ include_once("header.php");
 			} else {
 				echo "<div class='success-msg'>Order placed successfully !</div>";
 
-				if ($deliveryTime != 0) {
-					echo "<div class='success-msg'>Your order will be delivered at $deliveryTime.</div>";
+				if ($deliveryTime != 0 && $firstname != '') {
+					echo "<div class='success-msg'>$firstname, your order will be delivered at $deliveryTime.</div>";
 				}
 			}
 			?>
@@ -74,6 +75,32 @@ include_once("footer.php");
 ?>
 
 <script>
+
+	function checkform() {
+
+		let phonenumber = /^\d{10}$/;
+		let tel = document.getElementById('tel').value;
+
+		let name = /^[A-Za-z]+$/;
+		let fname = document.getElementById('fname').value;
+		let lname = document.getElementById('lname').value;
+
+		if (tel != '' && !tel.match(phonenumber)) {
+			alert('Phone number is invalid');
+			return false;
+
+		} else if (fname != '' && !fname.match(name)) {
+			alert('First name is invalid');
+			return false;
+
+		} else if (lname != '' && !lname.match(name)) {
+			alert('Last name is invalid');
+			return false;
+
+		} else {
+			return true;
+		}
+	}
 </script>
 
 
