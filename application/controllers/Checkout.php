@@ -18,11 +18,41 @@ class Checkout extends CI_Controller {
 		$lastname = $this->input->post('lastname');
 		$address = $this->input->post('address');
 		$phonenumber = $this->input->post('phonenumber');
+
 		date_default_timezone_set("Asia/Colombo");
-		$submittedTime = date("Y-m-d h:ia");
+		$submittedDateTime = date("Y-m-d h:ia");
 		$deliveryTime = date("h:ia",strtotime("+30 minutes"));
 
+		$orderItems = $this->session->added_items;
+		$orderTotal = $this->session->total;
 
+		$this->load->model('PlaceOrder');
+
+		$orderDetailId = $this ->PlaceOrder->insertOrderDetails($title, $firstname, $lastname, $address,
+			$phonenumber, $orderTotal, $submittedDateTime);
+
+		$otherOrderedItems = array();
+
+		foreach ($orderItems as $orderItem) {
+
+			if ($orderItem->type == "PIZZA") {
+
+				$pizzaOrderId = $this ->PlaceOrder->insertOrderedPizza($orderDetailId, $orderItem->quantity,
+					$orderItem->subTotal);
+
+				if (isset($orderItem->selectedToppings) && !empty($orderItem->selectedToppings)) {
+					$this ->PlaceOrder->insertOrderedPizzaToppings($pizzaOrderId, $orderItem->id,
+						$orderItem->selectedToppings);
+				}
+
+			} else {
+				array_push($otherOrderedItems, $orderItem);
+			}
+		}
+
+		if (isset($otherOrderedItems) && !empty($otherOrderedItems)) {
+			$this ->PlaceOrder->insertOrderedOtherItems($orderDetailId, $otherOrderedItems);
+		}
 
 
 		$this->session->unset_userdata('added_items');
