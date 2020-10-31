@@ -6,7 +6,9 @@ class Checkout extends CI_Controller {
 		if ($this->session->has_userdata('added_items')) {
 			$data = array("isSet" => TRUE, "total" => $this->session->total);
 		} else {
-			$data = array("isSet" => FALSE, "deliveryTime" => 0);
+			$data = array("isSet" => FALSE, "deliveryTime" => 0, "firstname" => '');
+
+			log_message('debug', 'No Session data available');
 		}
 
 		$this->load->view('checkout', $data);
@@ -63,6 +65,7 @@ class Checkout extends CI_Controller {
 			$this->session->unset_userdata('total');
 
 			$this->session->sess_destroy();
+			log_message('debug', 'Session destroyed');
 		}
 
 

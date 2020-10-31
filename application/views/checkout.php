@@ -72,7 +72,10 @@ if ($isSet && $total != 0) {
 	echo "<h4 class='modal-title'>Order placed successfully !</h4>";
 	echo "</div>";
 	echo "<div class='modal-body'>";
-	echo "<p>$firstname, your order will be delivered at $deliveryTime.</p>";
+
+	if ($deliveryTime != 0 && $firstname != "") {
+		echo "<p>$firstname, your order will be delivered at $deliveryTime.</p>";
+	}
 	echo "</div>";
 	echo "<div class='modal-footer'>";
 	echo "<button type='button' class='close-btn btn-secondary' data-dismiss='modal' onclick='closePopUp()'>Close</button>";

@@ -80,6 +80,8 @@ class MyCart extends CI_Controller {
 
 			$total = $selectedPrice * $quantity;
 			$this->session->set_userdata('total', $total);
+
+			log_message('debug', 'New session created');
 		}
 
 	}
