@@ -1,5 +1,7 @@
 <?php
 
+include "application/libraries/Item.php";
+
 class MyCart extends CI_Controller {
 
 	public function index() {
@@ -26,11 +28,11 @@ class MyCart extends CI_Controller {
 		$displayName = $this->input->post('displayName');
 
 		//Creating object to add to the session
-		$newItem = new stdClass();
-		$newItem->type = $type;
-		$newItem->id = $id;
-		$newItem->quantity = $quantity;
-		$newItem->displayName = $displayName;
+		$newItem = new Item();
+		$newItem->setType($type);
+		$newItem->setId($id);
+		$newItem->setQuantity($quantity);
+		$newItem->setDisplayName($displayName);
 
 		//If the adding item type is pizza add the topping details to the object
 		// and adding topping prices to the selected price
@@ -52,14 +54,14 @@ class MyCart extends CI_Controller {
 					$selectedPrice += $topping->price;
 				}
 
-				$newItem->selectedToppings = $toppingDetails;
+				$newItem->setSelectedToppings($toppingDetails);
 			}
 		}
 
-		$newItem->selectedPrice = $selectedPrice;
+		$newItem->setSelectedPrice($selectedPrice);
 
 		//Calculating sub total
-		$newItem->subTotal = $selectedPrice * $quantity;
+		$newItem->setSubTotal($selectedPrice * $quantity);
 
 		//If the session has data adding the new selected item to the existing list
 		//Else create a new session
@@ -71,7 +73,7 @@ class MyCart extends CI_Controller {
 
 				$matchedItem = FALSE;
 				foreach ($currentItems as $updatingItem) {
-					if ($newItem->id == $updatingItem->id && $newItem->type == $updatingItem->type) {
+					if ($newItem->getId() == $updatingItem->id && $newItem->getType() == $updatingItem->type) {
 
 						$matchedItem = TRUE;
 						$updatingItem->quantity = $updatingItem->quantity +1;
