@@ -1,6 +1,6 @@
 <?php
 
-class PlaceOrder extends CI_Model {
+class PlaceOrderModel extends CI_Model {
 
 	public function __construct() {
 		$this->load->database();

@@ -39,11 +39,11 @@ class Checkout extends CI_Controller {
 			$orderItems = $this->session->added_items;
 			$orderTotal = $this->session->total;
 
-			//Load the PlaceOrder model
-			$this->load->model('PlaceOrder');
+			//Load the PlaceOrderModel model
+			$this->load->model('PlaceOrderModel');
 
 			//Insert basic data of the order
-			$orderDetailId = $this ->PlaceOrder->insertOrderDetails($title, $firstname, $lastname, $address,
+			$orderDetailId = $this ->PlaceOrderModel->insertOrderDetails($title, $firstname, $lastname, $address,
 				$phonenumber, $orderTotal, $submittedDateTime);
 
 			$otherOrderedItems = array();
@@ -53,11 +53,11 @@ class Checkout extends CI_Controller {
 
 				if ($orderItem->type == "PIZZA") {
 
-					$pizzaOrderId = $this ->PlaceOrder->insertOrderedPizza($orderDetailId, $orderItem->quantity,
+					$pizzaOrderId = $this ->PlaceOrderModel->insertOrderedPizza($orderDetailId, $orderItem->quantity,
 						$orderItem->subTotal);
 
 					if (isset($orderItem->selectedToppings) && !empty($orderItem->selectedToppings)) {
-						$this ->PlaceOrder->insertOrderedPizzaToppings($pizzaOrderId, $orderItem->id,
+						$this ->PlaceOrderModel->insertOrderedPizzaToppings($pizzaOrderId, $orderItem->id,
 							$orderItem->selectedToppings);
 					}
 
@@ -67,7 +67,7 @@ class Checkout extends CI_Controller {
 			}
 
 			if (isset($otherOrderedItems) && !empty($otherOrderedItems)) {
-				$this ->PlaceOrder->insertOrderedOtherItems($orderDetailId, $otherOrderedItems);
+				$this ->PlaceOrderModel->insertOrderedOtherItems($orderDetailId, $otherOrderedItems);
 			}
 
 
