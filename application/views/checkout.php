@@ -78,7 +78,8 @@ if ($isSet && $total != 0) {
 	}
 	echo "</div>";
 	echo "<div class='modal-footer'>";
-	echo "<button type='button' class='close-btn btn-secondary' data-dismiss='modal' onclick='closePopUp()'>Close</button>";
+	echo "<button type='button' class='close-btn btn-secondary' data-dismiss='modal' 
+          onclick='closePopUp()'>Close</button>";
 	echo " </div>";
 	echo "</div>";
 

@@ -1,30 +1,26 @@
-/* set padding and margin to the all elements */
 * {
 	margin: 0;
 	padding: 0;
 }
 
-/* styling the body of the cv */
 body {
 	font: 16px Helvetica, Sans-Serif;
 	line-height: 24px;
 	margin: 0;
 	background-image: url("/PizzaNow/images/cvbg.jpg");
 	height: 100%;
-	background-size: cover; /* set the background image to the fullscreen of the page */
+	background-size: cover;
 }
 
 .clear {
 	clear: both;
 }
 
-/* setting the cv margin and the width */
 #page-wrap {
 	width: 800px;
 	margin: 40px auto 60px;
 }
 
-/* setting the picture to the top right corner and set the height and width */
 .pic {
 	float: right;
 	padding: 0px 0px 5px 5px;
@@ -32,7 +28,6 @@ body {
 	height: 330px;
 }
 
-/* styling the h1 element */
 h1 {
 	margin: 0 0 16px 0;
 	padding: 0 0 16px 0;
@@ -42,14 +37,12 @@ h1 {
 	border-bottom: 1px solid #999;
 }
 
-/* styling the h2 element */
 h2 {
 	font-size: 20px;
 	margin: 0 0 6px 0;
 	position: relative;
 }
 
-/* styling the h2 and span both elements */
 h2 span {
 	position: absolute;
 	bottom: 0;
@@ -61,25 +54,21 @@ h2 span {
 	font-weight: normal;
 }
 
-/* set the margin for the paragraph */
 p {
 	margin: 0 0 16px 0;
 }
 
-/* styling the a element */
 a {
 	color: #0000e6;
 	text-decoration: none;
 	border-bottom: 1px dotted #0000e6;
 }
 
-/* adding the hover effect to the a */
 a:hover {
 	border-bottom-style: solid;
-	color: black; /* a element becomes black with the hover effect */
+	color: black;
 }
 
-/* adding styles to the div tag with id name objective */
 #objective {
 	width: 500px;
 	float: left;
@@ -91,7 +80,6 @@ a:hover {
 	color: #000080;
 }
 
-/*  */
 dt {
 	font-style: italic;
 	font-weight: bold;

@@ -9,9 +9,9 @@ class PlaceOrder extends CI_Model {
 	public function insertOrderDetails($title, $firstname, $lastname, $address,
 									   $phonenumber, $orderTotal, $submittedDateTime) {
 
-		$orderData = array('c_title' => $title, 'c_first_name' => $firstname, 'c_last_name' => $lastname,
-			'c_address' => $address, 'c_phone_number' => $phonenumber, 'total_price' => $orderTotal,
-			'submitted_time' => $submittedDateTime);
+		$orderData = array('c_title' => $title, 'c_first_name' => $firstname,
+			'c_last_name' => $lastname, 'c_address' => $address, 'c_phone_number' => $phonenumber,
+			'total_price' => $orderTotal, 'submitted_time' => $submittedDateTime);
 
 		$this->db->insert('order_details', $orderData);
 
@@ -19,6 +19,7 @@ class PlaceOrder extends CI_Model {
 	}
 
 	public function insertOrderedOtherItems($orderDetailId, $otherOrderedItems) {
+
 		$data = array();
 
 		foreach ($otherOrderedItems as $item) {
@@ -33,7 +34,8 @@ class PlaceOrder extends CI_Model {
 
 	public function insertOrderedPizza($orderDetailId, $quantity, $subTotal) {
 
-		$pizza = array('order_id' => $orderDetailId, 'quantity' => $quantity, 'sub_total' => $subTotal);
+		$pizza = array('order_id' => $orderDetailId, 'quantity' => $quantity,
+			'sub_total' => $subTotal);
 
 		$this->db->insert('order_pizza', $pizza);
 

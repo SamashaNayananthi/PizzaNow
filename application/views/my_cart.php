@@ -87,7 +87,8 @@ include_once("header.php");
 </div>
 
 <div class="bottom">
-	<a class="continue-shopping" href="<?php echo base_url().'Menu/index' ?>"><i class='fa fa-mail-reply'></i>Continue Shopping</a>
+	<a class="continue-shopping" href="<?php echo base_url().'Menu/index' ?>">
+		<i class='fa fa-mail-reply'></i>Continue Shopping</a>
 
 	<?php
 	if ($isSet && $total != 0) {
