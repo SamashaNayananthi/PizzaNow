@@ -13,50 +13,58 @@ class Checkout extends CI_Controller {
 	}
 
 	public function placeOrder() {
-		$title = $this->input->post('title');
-		$firstname = $this->input->post('firstname');
-		$lastname = $this->input->post('lastname');
-		$address = $this->input->post('address');
-		$phonenumber = $this->input->post('phonenumber');
+		$deliveryTime = 0;
+		$firstname = "";
 
-		date_default_timezone_set("Asia/Colombo");
-		$submittedDateTime = date("Y-m-d h:ia");
-		$deliveryTime = date("h:ia",strtotime("+30 minutes"));
+		if ($this->session->has_userdata('added_items')) {
+			$title = $this->input->post('title');
+			$firstname = $this->input->post('firstname');
+			$lastname = $this->input->post('lastname');
+			$address = $this->input->post('address');
+			$phonenumber = $this->input->post('phonenumber');
 
-		$orderItems = $this->session->added_items;
-		$orderTotal = $this->session->total;
+			date_default_timezone_set("Asia/Colombo");
+			$submittedDateTime = date("Y-m-d h:ia");
+			$deliveryTime = date("h:ia",strtotime("+30 minutes"));
 
-		$this->load->model('PlaceOrder');
+			$orderItems = $this->session->added_items;
+			$orderTotal = $this->session->total;
 
-		$orderDetailId = $this ->PlaceOrder->insertOrderDetails($title, $firstname, $lastname, $address,
-			$phonenumber, $orderTotal, $submittedDateTime);
+			$this->load->model('PlaceOrder');
 
-		$otherOrderedItems = array();
+			$orderDetailId = $this ->PlaceOrder->insertOrderDetails($title, $firstname, $lastname, $address,
+				$phonenumber, $orderTotal, $submittedDateTime);
 
-		foreach ($orderItems as $orderItem) {
+			$otherOrderedItems = array();
 
-			if ($orderItem->type == "PIZZA") {
+			foreach ($orderItems as $orderItem) {
 
-				$pizzaOrderId = $this ->PlaceOrder->insertOrderedPizza($orderDetailId, $orderItem->quantity,
-					$orderItem->subTotal);
+				if ($orderItem->type == "PIZZA") {
 
-				if (isset($orderItem->selectedToppings) && !empty($orderItem->selectedToppings)) {
-					$this ->PlaceOrder->insertOrderedPizzaToppings($pizzaOrderId, $orderItem->id,
-						$orderItem->selectedToppings);
+					$pizzaOrderId = $this ->PlaceOrder->insertOrderedPizza($orderDetailId, $orderItem->quantity,
+						$orderItem->subTotal);
+
+					if (isset($orderItem->selectedToppings) && !empty($orderItem->selectedToppings)) {
+						$this ->PlaceOrder->insertOrderedPizzaToppings($pizzaOrderId, $orderItem->id,
+							$orderItem->selectedToppings);
+					}
+
+				} else {
+					array_push($otherOrderedItems, $orderItem);
 				}
-
-			} else {
-				array_push($otherOrderedItems, $orderItem);
 			}
+
+			if (isset($otherOrderedItems) && !empty($otherOrderedItems)) {
+				$this ->PlaceOrder->insertOrderedOtherItems($orderDetailId, $otherOrderedItems);
+			}
+
+
+			$this->session->unset_userdata('added_items');
+			$this->session->unset_userdata('total');
+
+			$this->session->sess_destroy();
 		}
 
-		if (isset($otherOrderedItems) && !empty($otherOrderedItems)) {
-			$this ->PlaceOrder->insertOrderedOtherItems($orderDetailId, $otherOrderedItems);
-		}
-
-
-		$this->session->unset_userdata('added_items');
-		$this->session->unset_userdata('total');
 
 		$this->submit($deliveryTime, $firstname);
 	}

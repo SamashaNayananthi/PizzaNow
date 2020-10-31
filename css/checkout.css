@@ -9,6 +9,7 @@ body {
 .page-title {
 	font-size: x-large;
 	font-weight: bold;
+	margin: 2% 0 3% 0;
 }
 
 .row {
@@ -87,11 +88,42 @@ input[type=tel] {
 	font-size: large;
 }
 
-.success-msg {
+.modal-content {
+	margin: 10% 25%;
+	background-color: antiquewhite;
+}
+
+.modal-header {
+	padding: 5%;
+	border-bottom: none;
 	text-align: center;
+}
+
+
+.modal-title {
 	font-size: x-large;
 	font-weight: bold;
-	padding: 2%;
+}
+
+.modal-body {
+	text-align: center;
+	font-size: large;
+	font-weight: bold;
+}
+
+.close-btn {
+	background-color: #282825;
+	border: solid;
+	padding: 1%;
+	text-align: center;
+	cursor: pointer;
+	font-weight: bold;
+	color: white;
+	width: 10%;
+}
+
+.modal-footer {
+	border-top: none;
 }
 
 @media (max-width: 800px) {
