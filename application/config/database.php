@@ -74,11 +74,11 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-	'dsn'	=> '',
-	'hostname' => 'localhost:3306',
-	'username' => 'root',
-	'password' => 'SamashaN521',
-	'database' => 'pizza_now',
+	'dsn'  => '',
+	'hostname' => 'phpmyadmin.ecs.westminster.ac.uk',
+	'username' => 'w1697763',
+	'password' => 'gAQGSHhZxJom',
+	'database' => 'w1697763_0',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
@@ -94,3 +94,4 @@ $db['default'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
+

@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/PizzaNow/index.php/';
+$config['base_url'] = 'https://w1697763.users.ecs.westminster.ac.uk/PizzaNow/index.php/';
 
 /*
 |--------------------------------------------------------------------------
@@ -223,7 +223,7 @@ $config['allow_get_array'] = TRUE;
 | your log files will fill up very fast.
 |
 */
-$config['log_threshold'] = 2;
+$config['log_threshold'] = 4;
 
 /*
 |--------------------------------------------------------------------------
@@ -234,7 +234,7 @@ $config['log_threshold'] = 2;
 | application/logs/ directory. Use a full server path with trailing slash.
 |
 */
-$config['log_path'] = 'C:/xampp/htdocs/PizzaNow/application/logs/';
+$config['log_path'] = '/home/student/763/w1697763/public_html/PizzaNow/application/logs/';
 
 /*
 |--------------------------------------------------------------------------
