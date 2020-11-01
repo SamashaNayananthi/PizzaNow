@@ -6,10 +6,10 @@ class Checkout extends CI_Controller {
 
 		//If session has data pass the total to view
 		if ($this->session->has_userdata('added_items')) {
-			$data = array("isSet" => TRUE, "total" => $this->session->total);
+			$data = array("sessionIsSet" => TRUE, "total" => $this->session->total);
 
 		} else {
-			$data = array("isSet" => FALSE, "deliveryTime" => 0, "firstname" => '');
+			$data = array("sessionIsSet" => FALSE, "deliveryTime" => 0, "firstname" => '');
 
 			log_message('debug', 'No Session data available');
 		}
@@ -85,10 +85,10 @@ class Checkout extends CI_Controller {
 	public function submit($deliveryTime, $firstname) {
 
 		if ($this->session->has_userdata('added_items')) {
-			$data = array("isSet" => TRUE, "total" => $this->session->total);
+			$data = array("sessionIsSet" => TRUE, "total" => $this->session->total);
 
 		} else {
-			$data = array("isSet" => FALSE, "deliveryTime" => $deliveryTime, "firstname" => $firstname);
+			$data = array("sessionIsSet" => FALSE, "deliveryTime" => $deliveryTime, "firstname" => $firstname);
 		}
 
 		$this->load->view('checkout', $data);

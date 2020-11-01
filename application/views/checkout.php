@@ -20,7 +20,7 @@ include_once("header.php");
 
 <?php
 
-if ($isSet && $total != 0) {
+if ($sessionIsSet && $total != 0) {
 
 	echo "<div class='row'>";
 	echo "<div class='col-75'>";
