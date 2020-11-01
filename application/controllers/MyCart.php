@@ -6,11 +6,11 @@ class MyCart extends CI_Controller {
 
 		//If session has data send required data, else send required information to view
 		if ($this->session->has_userdata('added_items')) {
-			$data = array("isSet" => TRUE, "data" => $this->session->added_items,
+			$data = array("sessionIsSet" => TRUE, "data" => $this->session->added_items,
 				"total" => $this->session->total);
 
 		} else {
-			$data = array("isSet" => FALSE);
+			$data = array("sessionIsSet" => FALSE);
 		}
 
 		$this->load->view('my_cart', $data);

@@ -22,7 +22,7 @@ include_once("header.php");
 	<table class="w3-table w3-bordered">
 		<?php
 
-		if ($isSet && $total != 0) {
+		if ($sessionIsSet && $total != 0) {
 
 			echo "<tr>";
 			echo "<th>Item</th>";
@@ -91,7 +91,7 @@ include_once("header.php");
 		<i class='fa fa-mail-reply'></i>Continue Shopping</a>
 
 	<?php
-	if ($isSet && $total != 0) {
+	if ($sessionIsSet && $total != 0) {
 		echo "<button  class='checkout' onclick=\"window.location.href='/PizzaNow/index.php/Checkout/index'\">
               <i class='fa fa-check-square-o'></i>Checkout</button>";
 	}
