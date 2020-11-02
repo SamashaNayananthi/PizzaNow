@@ -89,7 +89,7 @@ input[type=tel] {
 }
 
 .modal-content {
-	margin: 10% 25%;
+	margin: 5% 25%;
 	background-color: antiquewhite;
 }
 
@@ -120,6 +120,12 @@ input[type=tel] {
 	font-weight: bold;
 	color: white;
 	width: 10%;
+}
+
+.notice {
+	font-size: medium;
+	margin-top: 5%;
+	color: red;
 }
 
 .modal-footer {

@@ -75,6 +75,7 @@ if ($sessionIsSet && $total != 0) {
 
 	if ($deliveryTime != 0 && $firstname != "") {
 		echo "<p>$firstname, your order will be delivered at $deliveryTime.</p>";
+		echo "<p class='notice'>Payment is to be made on a cash on delivery basis.</p>";
 	}
 	echo "</div>";
 	echo "<div class='modal-footer'>";
