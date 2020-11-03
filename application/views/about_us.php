@@ -2,7 +2,8 @@
 
 <head>
 	<title>PizzaNow!</title>
-
+        
+        <link rel="shortcut icon" type="image/x-icon" href="/PizzaNow/images/favicon.png" />
 	<link href="/PizzaNow/css/aboutus.css" rel="stylesheet">
 </head>
 

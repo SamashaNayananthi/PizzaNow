@@ -3,9 +3,8 @@
 <head>
 	<title>PizzaNow!</title>
 
+        <link rel="shortcut icon" type="image/x-icon" href="/PizzaNow/images/favicon.png" />
 	<link href="/PizzaNow/css/homepage.css" rel="stylesheet">
-
-	<link rel="shortcut icon" type="image/x-icon" href="/PizzaNow/images/favicon.png" />
 </head>
 
 <body>

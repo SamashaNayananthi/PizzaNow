@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Samasha Nayananthi</title>
 
+        <link rel="shortcut icon" type="image/x-icon" href="/PizzaNow/images/favicon.png" />
 	<link href="/PizzaNow/css/stylecv.css" rel="stylesheet">
 </head>
 <body>
