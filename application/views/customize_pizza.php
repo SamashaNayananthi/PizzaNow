@@ -19,22 +19,24 @@ include_once("header.php");
 
 <div id="main-container">
 	<div id="left-pane">
-		<?php
-
-		echo "<img src=$details->img_url height='200px' width='250px'>";
-
-		?>
-
-		<div class='details'>
+		<div class="left-body">
 			<?php
 
-			echo "<div hidden id='itemId'>$details->id</div>";
-			echo "<div class='name' data-toggle='tooltip' data-placement='top' title='$details->display_name'>
-                  $details->display_name</div>";
-			echo "<div class='desc' data-toggle='tooltip' data-placement='top' title='$details->description'>
-                  $details->description</div>";
+			echo "<img src=$details->img_url height='200px' width='250px'>";
 
 			?>
+
+			<div class='details'>
+				<?php
+
+				echo "<div hidden id='itemId'>$details->id</div>";
+				echo "<div class='name' data-toggle='tooltip' data-placement='top' title='$details->display_name'>
+                  $details->display_name</div>";
+				echo "<div class='desc' data-toggle='tooltip' data-placement='top' title='$details->description'>
+                  $details->description</div>";
+
+				?>
+			</div>
 		</div>
 	</div>
 

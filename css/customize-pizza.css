@@ -46,6 +46,11 @@ body {
 	width: 66%;
 }
 
+.left-body {
+	margin-left: auto;
+	margin-right: auto;
+}
+
 #right-pane .radio-inline {
 	margin: 1% 5%;
 }
