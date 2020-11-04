@@ -51,6 +51,11 @@ body {
 	margin-right: auto;
 }
 
+.left-body img {
+	width: 100%;
+	height: 200px !important;
+}
+
 #right-pane .radio-inline {
 	margin: 1% 5%;
 }

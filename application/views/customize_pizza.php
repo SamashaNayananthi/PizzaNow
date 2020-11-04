@@ -22,7 +22,7 @@ include_once("header.php");
 		<div class="left-body">
 			<?php
 
-			echo "<img src=$details->img_url height='200px' width='250px'>";
+			echo "<img src=$details->img_url>";
 
 			?>
 
