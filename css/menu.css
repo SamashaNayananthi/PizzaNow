@@ -42,6 +42,8 @@ h2 .title {
 #grid-item {
 	background-color: white;
 	padding: 2%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #grid-item hr{
