@@ -5,7 +5,7 @@ class Checkout extends CI_Controller {
 	public function index() {
 
 		//If session has data pass the total to view
-		if ($this->session->has_userdata('added_items')) {
+		if ($this->session->has_userdata('addedItems')) {
 			$data = array("sessionIsSet" => TRUE, "total" => $this->session->total);
 
 		} else {
@@ -22,7 +22,7 @@ class Checkout extends CI_Controller {
 		$deliveryTime = 0;
 		$firstname = "";
 
-		if ($this->session->has_userdata('added_items')) {
+		if ($this->session->has_userdata('addedItems')) {
 			//Catch post request data
 			$title = $this->input->post('title');
 			$firstname = $this->input->post('firstname');
@@ -36,7 +36,7 @@ class Checkout extends CI_Controller {
 			$deliveryTime = date("h:ia",strtotime("+30 minutes"));
 
 			//Get current session details in order to insert into database
-			$orderItems = $this->session->added_items;
+			$orderItems = $this->session->addedItems;
 			$orderTotal = $this->session->total;
 
 			//Load the PlaceOrderModel model
@@ -72,7 +72,7 @@ class Checkout extends CI_Controller {
 
 
 			//After inserting all the details to db unset and destroy the current session
-			$this->session->unset_userdata('added_items');
+			$this->session->unset_userdata('addedItems');
 			$this->session->unset_userdata('total');
 
 			$this->session->sess_destroy();
@@ -84,7 +84,7 @@ class Checkout extends CI_Controller {
 
 	public function submit($deliveryTime, $firstname) {
 
-		if ($this->session->has_userdata('added_items')) {
+		if ($this->session->has_userdata('addedItems')) {
 			$data = array("sessionIsSet" => TRUE, "total" => $this->session->total);
 
 		} else {

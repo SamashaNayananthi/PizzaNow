@@ -5,8 +5,8 @@ class MyCart extends CI_Controller {
 	public function index() {
 
 		//If session has data send required data, else send required information to view
-		if ($this->session->has_userdata('added_items')) {
-			$data = array("sessionIsSet" => TRUE, "data" => $this->session->added_items,
+		if ($this->session->has_userdata('addedItems')) {
+			$data = array("sessionIsSet" => TRUE, "data" => $this->session->addedItems,
 				"total" => $this->session->total);
 
 		} else {
@@ -63,9 +63,9 @@ class MyCart extends CI_Controller {
 
 		//If the session has data adding the new selected item to the existing list
 		//Else create a new session
-		if ($this->session->has_userdata('added_items')) {
+		if ($this->session->has_userdata('addedItems')) {
 
-			$currentItems = $this->session->added_items;
+			$currentItems = $this->session->addedItems;
 
 			if ($type != "PIZZA") {
 
@@ -87,7 +87,7 @@ class MyCart extends CI_Controller {
 				array_push($currentItems, $newItem);
 			}
 
-			$this->session->set_userdata('added_items', $currentItems);
+			$this->session->set_userdata('addedItems', $currentItems);
 
 			//Calculate new total and set the session variable
 			$currentTotal = $this->session->total;
@@ -97,7 +97,7 @@ class MyCart extends CI_Controller {
 		} else {
 
 			$items = array($newItem);
-			$this->session->set_userdata('added_items', $items);
+			$this->session->set_userdata('addedItems', $items);
 
 			$total = $selectedPrice * $quantity;
 			$this->session->set_userdata('total', $total);
@@ -114,7 +114,7 @@ class MyCart extends CI_Controller {
 		$type = $this->input->post('type');
 
 		//Get the item need to update
-		$allItems = $this->session->added_items;
+		$allItems = $this->session->addedItems;
 		$item = $allItems[$index];
 
 		$oldQuantity = $item->quantity;
@@ -137,7 +137,7 @@ class MyCart extends CI_Controller {
 		$item->subTotal = $newSubTotal;
 
 		$allItems[$index] = $item;
-		$this->session->set_userdata('added_items', $allItems);
+		$this->session->set_userdata('addedItems', $allItems);
 		$this->session->set_userdata('total', $newTotal);
 	}
 
@@ -146,7 +146,7 @@ class MyCart extends CI_Controller {
 		//Get post request data into variables
 		$index = (int)$this->input->post('index');
 
-		$allItems = $this->session->added_items;
+		$allItems = $this->session->addedItems;
 		$item = $allItems[$index];
 
 		//Update the total price
@@ -155,7 +155,7 @@ class MyCart extends CI_Controller {
 
 		//Update the session
 		array_splice($allItems,$index,1);
-		$this->session->set_userdata('added_items', $allItems);
+		$this->session->set_userdata('addedItems', $allItems);
 		$this->session->set_userdata('total', $newTotal);
 	}
 
