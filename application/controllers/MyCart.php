@@ -13,7 +13,7 @@ class MyCart extends CI_Controller {
 			$data = array("sessionIsSet" => FALSE);
 		}
 
-		$this->load->view('my_cart', $data);
+		$this->load->view('myCart', $data);
 	}
 
 	public function addToCart() {

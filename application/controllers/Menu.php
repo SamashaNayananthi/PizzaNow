@@ -42,7 +42,7 @@ class Menu extends CI_Controller {
 
 		$details = array('details' => $details, 'toppingsList' => $this ->MenuModel->getAllToppings());
 
-		$this->load->view('customize_pizza',  $details);
+		$this->load->view('customizePizza',  $details);
 	}
 
 }

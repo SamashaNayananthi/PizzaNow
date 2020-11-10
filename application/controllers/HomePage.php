@@ -3,7 +3,7 @@
 class HomePage extends CI_Controller {
 
 	public function index(){
-		$this->load->view('home_page');
+		$this->load->view('homePage');
 	}
 
 	public function myCV(){
@@ -11,7 +11,7 @@ class HomePage extends CI_Controller {
 	}
 
 	public function aboutUs(){
-		$this->load->view('about_us');
+		$this->load->view('aboutUs');
 	}
 
 }
